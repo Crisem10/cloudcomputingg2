@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+*.db
+.known_hosts
+aws_known_hosts
