@@ -101,6 +101,7 @@
       }
 
       .nav-item {
+        text-decoration: none;
         border: 0;
         border-radius: 8px;
         color: #dfe7f2;
@@ -453,9 +454,9 @@
 
         <div class="nav-label">Actividad 14</div>
         <nav aria-label="Secciones">
-          <button class="nav-item active" type="button"><span class="dot"></span> Catalogo</button>
-          <button class="nav-item" type="button"><span class="dot" style="background: var(--yellow)"></span> Pruebas</button>
-          <button class="nav-item" type="button"><span class="dot" style="background: var(--violet)"></span> Defensa</button>
+          <a class="nav-item active" href="#catalogo"><span class="dot"></span> Catalogo</a>
+          <a class="nav-item" href="#pruebas"><span class="dot" style="background: var(--yellow)"></span> Pruebas</a>
+          <a class="nav-item" href="#defensa"><span class="dot" style="background: var(--violet)"></span> Defensa</a>
         </nav>
       </aside>
 
@@ -470,7 +471,7 @@
           <div class="status-pill">pytest: 4 passed</div>
         </section>
 
-        <section class="layout">
+        <section class="layout" id="catalogo">
           <article class="panel">
             <div class="panel-head">
               <h2>Producto</h2>
@@ -552,7 +553,7 @@
         </section>
 
         <section class="evidence">
-          <article class="panel">
+          <article class="panel" id="pruebas">
             <div class="panel-head">
               <h2>Reporte de pruebas</h2>
             </div>
@@ -561,9 +562,9 @@
 4 passed in 0.23s</pre>
           </article>
 
-          <article class="panel">
+          <article class="panel" id="defensa">
             <div class="panel-head">
-              <h2>Criterios cubiertos</h2>
+              <h2>Defensa tecnica</h2>
             </div>
             <div class="checks">
               <div class="check"><span class="check-mark">✓</span> CRUD completo</div>
