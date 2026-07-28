@@ -83,7 +83,3 @@ Salida esperada:
 - `put_item` se implementa como operacion idempotente: repetir el mismo `sku` actualiza el registro sin duplicarlo.
 - Se separo la logica de almacenamiento en dos clases: `DynamoInventoryStore` y `SQLiteInventoryStore`.
 - Las pruebas usan SQLite para poder ejecutarse aun cuando el emulador DynamoDB no este activo.
-
-## Error depurado durante la sesion
-
-Al leer el PDF, la consola de Windows no pudo imprimir algunos caracteres Unicode. Se corrigio forzando la salida de Python a UTF-8 para extraer correctamente las instrucciones.
