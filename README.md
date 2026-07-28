@@ -15,6 +15,8 @@ Crear una tabla `inventario` con llave primaria `sku`, implementar operaciones C
 - `index.html`: interfaz visual del inventario.
 - `inventory.py`: script CLI y clases de acceso a datos.
 - `tests/test_inventory.py`: pruebas automatizadas con `pytest`.
+- `REPORTE_PRUEBAS.md`: evidencia formal de pruebas.
+- `DEFENSA_TECNICA.md`: decisiones de diseno y error depurado.
 - `requirements.txt`: dependencias para DynamoDB compatible y pruebas.
 - `prompts.md`: registro de prompts usado en la solucion.
 
@@ -78,6 +80,8 @@ Salida esperada:
 4 passed
 ```
 
+El detalle del reporte esta en `REPORTE_PRUEBAS.md`.
+
 ## Decisiones tecnicas
 
 - `sku` es la clave primaria porque identifica de forma unica cada producto.
@@ -88,3 +92,5 @@ Salida esperada:
 ## Error depurado durante la sesion
 
 Al leer el PDF, la consola de Windows no pudo imprimir algunos caracteres Unicode. Se corrigio forzando la salida de Python a UTF-8 para extraer correctamente las instrucciones.
+
+La defensa completa esta en `DEFENSA_TECNICA.md`.

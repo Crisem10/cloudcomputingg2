@@ -2,10 +2,6 @@
 
 ## 1. Prompt inicial
 
-Necesito resolver la Actividad 14. Soy el Grupo 2. El repositorio de entrega es `git@github.com:Crisem10/cloudcomputingg2.git`.
-
-## 2. Interpretacion de la consigna
-
 Actua como asistente de desarrollo para una practica de computacion en la nube. Lee la consigna del PDF y extrae solamente lo que corresponde al Grupo 2. Identifica servicios, producto minimo, pruebas obligatorias y entregables.
 
 Resultado esperado: confirmar que el Grupo 2 debe implementar un inventario NoSQL con DynamoDB compatible, operaciones CRUD completas y pruebas positiva, negativa e idempotente.
@@ -47,8 +43,18 @@ Condiciones:
 - Puede usar `localStorage` para persistencia del navegador.
 - Debe mostrar la salida de pruebas y los criterios cubiertos.
 
-## 7. Revision critica final
+## 7. Revision critica
 
 Verifica que el repositorio tenga codigo, README, pruebas automatizadas, reporte visible de pruebas, registro de prompts y una explicacion clara para defensa tecnica.
 
 Decision principal para defender: `sku` es la clave primaria porque identifica cada producto de forma unica. `put_item` es idempotente porque repetir el mismo `sku` actualiza el item sin duplicarlo. SQLite se usa como fallback para demostrar la practica aunque el emulador DynamoDB no este disponible.
+
+## 8. Prompt de cierre
+
+Revisa que se cumplan todos los entregables obligatorios:
+
+- Repositorio Git con codigo.
+- README con decisiones tecnicas y reproduccion del entorno.
+- Reporte de pruebas con salida de `pytest`.
+- Defensa tecnica con una decision de diseno y un error depurado.
+- Archivo `prompts.md` con prompt inicial, revision critica y prompt de depuracion.
