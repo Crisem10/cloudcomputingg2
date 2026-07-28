@@ -5,3 +5,7 @@ __pycache__/
 *.db
 .known_hosts
 aws_known_hosts
+tmp/
+*.docx
+screenshot_sistema.png
+terminal_evidencia.png

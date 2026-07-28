@@ -148,17 +148,6 @@
         max-width: 760px;
       }
 
-      .status-pill {
-        min-width: 190px;
-        border-radius: 8px;
-        padding: 12px 14px;
-        color: #0f5132;
-        background: #dff5eb;
-        border: 1px solid #b9e6d3;
-        font-weight: 700;
-        text-align: center;
-      }
-
       .layout {
         display: grid;
         grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
@@ -355,48 +344,6 @@
         color: var(--red);
       }
 
-      .evidence {
-        margin-top: 22px;
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 22px;
-      }
-
-      pre {
-        margin: 0;
-        padding: 18px 20px;
-        overflow: auto;
-        color: #e2e8f0;
-        background: #111827;
-        border-radius: 0 0 8px 8px;
-        font-size: 13px;
-      }
-
-      .checks {
-        padding: 18px 20px;
-        display: grid;
-        gap: 13px;
-      }
-
-      .check {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: #334155;
-      }
-
-      .check-mark {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        color: #fff;
-        background: var(--green);
-        font-size: 14px;
-        font-weight: 900;
-      }
-
       @media (max-width: 980px) {
         .shell {
           grid-template-columns: 1fr;
@@ -410,8 +357,7 @@
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
-        .layout,
-        .evidence {
+        .layout {
           grid-template-columns: 1fr;
         }
       }
@@ -430,9 +376,6 @@
           display: grid;
         }
 
-        .status-pill {
-          min-width: 0;
-        }
       }
     </style>
   </head>
@@ -455,8 +398,8 @@
         <div class="nav-label">Actividad 14</div>
         <nav aria-label="Secciones">
           <a class="nav-item active" href="#catalogo"><span class="dot"></span> Catalogo</a>
-          <a class="nav-item" href="#pruebas"><span class="dot" style="background: var(--yellow)"></span> Pruebas</a>
-          <a class="nav-item" href="#defensa"><span class="dot" style="background: var(--violet)"></span> Defensa</a>
+          <a class="nav-item" href="#producto"><span class="dot" style="background: var(--yellow)"></span> Producto</a>
+          <a class="nav-item" href="#inventario"><span class="dot" style="background: var(--violet)"></span> Inventario</a>
         </nav>
       </aside>
 
@@ -468,11 +411,10 @@
               CRUD visual para demostrar crear, leer, actualizar y eliminar items del inventario del Grupo 2.
             </p>
           </div>
-          <div class="status-pill">pytest: 4 passed</div>
         </section>
 
         <section class="layout" id="catalogo">
-          <article class="panel">
+          <article class="panel" id="producto">
             <div class="panel-head">
               <h2>Producto</h2>
             </div>
@@ -530,7 +472,7 @@
               </article>
             </div>
 
-            <article class="panel">
+            <article class="panel" id="inventario">
               <div class="panel-head">
                 <h2>Inventario</h2>
               </div>
@@ -552,30 +494,6 @@
           </section>
         </section>
 
-        <section class="evidence">
-          <article class="panel" id="pruebas">
-            <div class="panel-head">
-              <h2>Reporte de pruebas</h2>
-            </div>
-            <pre>pytest -q
-....                                                                     [100%]
-4 passed in 0.23s</pre>
-          </article>
-
-          <article class="panel" id="defensa">
-            <div class="panel-head">
-              <h2>Defensa tecnica</h2>
-            </div>
-            <div class="checks">
-              <div class="check"><span class="check-mark">✓</span> CRUD completo</div>
-              <div class="check"><span class="check-mark">✓</span> Prueba positiva</div>
-              <div class="check"><span class="check-mark">✓</span> Prueba negativa</div>
-              <div class="check"><span class="check-mark">✓</span> Put idempotente</div>
-              <div class="check"><span class="check-mark">✓</span> Fallback SQLite</div>
-              <div class="check"><span class="check-mark">✓</span> README, prompts y reporte formal</div>
-            </div>
-          </article>
-        </section>
       </main>
     </div>
 
@@ -598,6 +516,10 @@
       };
 
       function readProducts() {
+        if (new URLSearchParams(window.location.search).has("reset")) {
+          localStorage.removeItem(STORAGE_KEY);
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
         const saved = localStorage.getItem(STORAGE_KEY);
         return saved ? JSON.parse(saved) : seedProducts;
       }
