@@ -1,21 +1,26 @@
 # Inventario NoSQL con DynamoDB compatible - Grupo 2
 
-Actividad 14: CRUD de inventario para una tienda en línea.
+Actividad 14: CRUD de inventario para una tienda en linea.
 
 ## Objetivo
 
 Crear una tabla `inventario` con llave primaria `sku`, implementar operaciones CRUD completas y validar:
 
-- Prueba positiva: consultar un ítem existente.
-- Prueba negativa: consultar/modificar/eliminar un ítem inexistente.
+- Prueba positiva: consultar un item existente.
+- Prueba negativa: consultar/modificar/eliminar un item inexistente.
 - Prueba idempotente: ejecutar `put_item` dos veces con el mismo `sku`.
 
 ## Estructura
 
+- `index.html`: interfaz visual del inventario.
 - `inventory.py`: script CLI y clases de acceso a datos.
 - `tests/test_inventory.py`: pruebas automatizadas con `pytest`.
 - `requirements.txt`: dependencias para DynamoDB compatible y pruebas.
-- `prompts.md`: registro de prompts usado en la solución.
+- `prompts.md`: registro de prompts usado en la solucion.
+
+## Interfaz visual
+
+Abrir `index.html` en el navegador. La pantalla permite crear, leer, actualizar y eliminar productos de forma visual. Usa `localStorage` para simular el catalogo en el navegador y sirve como evidencia visual del flujo CRUD.
 
 ## Backend principal: DynamoDB compatible
 
@@ -52,7 +57,7 @@ aws dynamodb get-item \
 
 ## Fallback: SQLite
 
-Si DynamoDB compatible no está disponible, se usa SQLite con un esquema equivalente.
+Si DynamoDB compatible no esta disponible, se usa SQLite con un esquema equivalente.
 
 ```bash
 python inventory.py init --backend sqlite --db-path inventario.db
@@ -73,14 +78,13 @@ Salida esperada:
 4 passed
 ```
 
-## Decisiones técnicas
+## Decisiones tecnicas
 
-- `sku` es la clave primaria porque identifica de forma única cada producto.
-- `put_item` se implementa como operación idempotente: repetir el mismo `sku` actualiza el registro sin duplicarlo.
-- Se separó la lógica de almacenamiento en dos clases: `DynamoInventoryStore` y `SQLiteInventoryStore`.
-- Las pruebas usan SQLite para poder ejecutarse aun cuando el emulador DynamoDB no esté activo.
+- `sku` es la clave primaria porque identifica de forma unica cada producto.
+- `put_item` se implementa como operacion idempotente: repetir el mismo `sku` actualiza el registro sin duplicarlo.
+- Se separo la logica de almacenamiento en dos clases: `DynamoInventoryStore` y `SQLiteInventoryStore`.
+- Las pruebas usan SQLite para poder ejecutarse aun cuando el emulador DynamoDB no este activo.
 
-## Error depurado durante la sesión
+## Error depurado durante la sesion
 
-Al leer el PDF, la consola de Windows no pudo imprimir algunos caracteres Unicode. Se corrigió forzando la salida de Python a UTF-8 para extraer correctamente las instrucciones.
-
+Al leer el PDF, la consola de Windows no pudo imprimir algunos caracteres Unicode. Se corrigio forzando la salida de Python a UTF-8 para extraer correctamente las instrucciones.
